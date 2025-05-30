@@ -18,4 +18,4 @@ COPY src ./src
 RUN ./mvnw package -DskipTests
 
 # Run the Spring Boot app
-CMD ["java", "-jar", "target/*.jar"]
+CMD ["java", "-jar", "target/finance-0.0.1-SNAPSHOT.jar"]
