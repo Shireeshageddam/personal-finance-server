@@ -17,11 +17,14 @@ public class SimpleCorsFilter implements Filter {
     HttpServletRequest request = (HttpServletRequest) req;
     HttpServletResponse response = (HttpServletResponse) res;
 
-    response.setHeader("Access-Control-Allow-Origin",
-        "https://personal-finance-client-7hqdrmlom-shireeshageddams-projects.vercel.app");
-    response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-    response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-    response.setHeader("Access-Control-Allow-Credentials", "true");
+    String origin = request.getHeader("Origin");
+
+    if ("https://personal-finance-client-7hqdrmlom-shireeshageddams-projects.vercel.app".equals(origin)) {
+      response.setHeader("Access-Control-Allow-Origin", origin);
+      response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+      response.setHeader("Access-Control-Allow-Headers", "Origin, Content-Type, Accept, Authorization");
+      response.setHeader("Access-Control-Allow-Credentials", "true");
+    }
 
     if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
       response.setStatus(HttpServletResponse.SC_OK);
