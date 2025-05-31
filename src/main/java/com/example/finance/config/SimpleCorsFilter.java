@@ -21,10 +21,12 @@ public class SimpleCorsFilter implements Filter {
 
     if ("https://personal-finance-client-7hqdrmlom-shireeshageddams-projects.vercel.app".equals(origin)) {
       response.setHeader("Access-Control-Allow-Origin", origin);
-      response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-      response.setHeader("Access-Control-Allow-Headers", "Origin, Content-Type, Accept, Authorization");
-      response.setHeader("Access-Control-Allow-Credentials", "true");
     }
+
+    response.setHeader("Vary", "Origin");
+    response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    response.setHeader("Access-Control-Allow-Headers", "Origin, Content-Type, Accept, Authorization");
+    response.setHeader("Access-Control-Allow-Credentials", "true");
 
     if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
       response.setStatus(HttpServletResponse.SC_OK);
