@@ -13,7 +13,7 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addMapping("/**")
                 .allowedOrigins("https://personal-finance-client-7hqdrmlom-shireeshageddams-projects.vercel.app") // frontend
                                                                                                                   // origin
-                .allowedMethods("*")
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true);
     }
