@@ -19,7 +19,7 @@ public class SimpleCorsFilter implements Filter {
 
     String origin = request.getHeader("Origin");
 
-    if ("https://personal-finance-client-7hqdrmlom-shireeshageddams-projects.vercel.app".equals(origin)) {
+    if ("https://personal-finance-client.vercel.app".equals(origin)) {
       response.setHeader("Access-Control-Allow-Origin", origin);
       response.setHeader("Access-Control-Allow-Credentials", "true");
     }
